@@ -19,11 +19,13 @@ library(dplyr)
 library(cesR)
 ```
 
-# R Markdown
+# Introduction
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+First paragraph: The divide between English and French Canada has historically been the source of much social tension in this country. Franco-Canadians have historically found themselves in opposition to and oppressed by the English majority. Although in recent times, the tension between these two groups have cooled, the affects can still be seen within society. In particular, the socioeconomic well-being of these communities. The goal of this analysis is to analyze any socioeconomic gaps that can be seen in contemporary Canadian society, as a result of these tensions. the Motivational. We find that Specific Findings.
 
-You can embed an R code chunk like this:
+Second paragraph: Using data from the 2019 Canadian Election Study, we analyze and discuss the gaps between various socioeconomic indicators between English speaking and French speaking Canadians. Specifically, we examine income distribution, educational attainment, and employment status as  Elaborate about methodology and findings.
+
+Third paragraph: Outline of the paper. Future work. Weaknesses. In the future, we plan on. Bilingualism is a latent variable that was not considered in our study. As well, these findings may not apply to
 
 ```{r prepare data set}
 
