@@ -1,1 +1,3 @@
-# sta304_website
+# About
+
+A website containing reports for STA304 assignments!
