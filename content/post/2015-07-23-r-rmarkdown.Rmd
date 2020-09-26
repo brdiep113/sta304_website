@@ -7,30 +7,30 @@ tags: ["R Markdown", "plot", "regression"]
 bibliography: "references.bib"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
-install.packages("devtools")
-install.packages("tidyverse")
-install.packages("dplyr")
-devtools::install_github("hodgettsp/cesR")
+```{r setup, include=TRUE, message=FALSE, echo=FALSE}
+#knitr::opts_chunk$set(collapse = TRUE)
+#install.packages("devtools")
+#install.packages("tidyverse")
+#install.packages("dplyr")
+#devtools::install_github("hodgettsp/cesR")
 
 library(tidyverse)
 library(dplyr)
 library(cesR)
-```
-
-# Introduction
-
-First paragraph: The divide between English and French Canada has historically been the source of much social tension in this country. Franco-Canadians have historically found themselves in opposition to and oppressed by the English majority. Although in recent times, the tension between these two groups have cooled, the affects can still be seen within society. In particular, the socioeconomic well-being of these communities. The goal of this analysis is to analyze any socioeconomic gaps that can be seen in contemporary Canadian society, as a result of these tensions. the Motivational. We find that Specific Findings.
-
-Second paragraph: Using data from the 2019 Canadian Election Study, we analyze and discuss the gaps between various socioeconomic indicators between English speaking and French speaking Canadians. Specifically, we examine income distribution, educational attainment, and employment status as  Elaborate about methodology and findings.
-
-Third paragraph: Outline of the paper. Future work. Weaknesses. In the future, we plan on. Bilingualism is a latent variable that was not considered in our study. As well, these findings may not apply to
-
-```{r prepare data set}
 
 #Get data set
 cesR::get_decon()
+```
+
+## Part I. Introduction
+
+First paragraph: The divide between English and French Canada has historically been the source of much social tension in this country. Franco-Canadians have historically found themselves in opposition to and oppressed by the English majority. Although in recent times, the tension between these two groups have cooled, the affects can still be seen within society. In particular, the socioeconomic well-being of these communities. The goal of this analysis is to analyze any socioeconomic gaps that can be seen in contemporary Canadian society, as a result of these tensions. the Motivational. We find that Specific Findings.
+
+Second paragraph: Using data from web responses to the 2019 Canadian Election Study, we analyze and discuss the gaps between various socioeconomic indicators between English speaking and French speaking Canadians. Specifically, we examine income distribution, educational attainment, and employment status as  Elaborate about methodology and findings.
+
+Third paragraph: Outline of the paper. Future work. Weaknesses. In the future, we plan on. Bilingualism is a latent variable that was not considered in our study. As well, these findings may not apply to
+
+```{r prepare data set, message=FALSE}
 
 eng_data<-decon %>%
   filter(language_eng=="English")
@@ -39,10 +39,85 @@ fre_data<-decon %>%
   filter(language_fr=="French")
 ```
 
-# Including Plots
+## Part II. Analysis
+# Part II-a. Income
 
-You can also embed plots. See Figure \@ref(fig:pie) for example:
+You can also embed plots. See Figure \ref(fig:english_income) for example:
 
+```{r english_income, echo=FALSE, tidy=FALSE, fig.height=10, fig.width=10}
+
+eng_income_data<- eng_data %>%
+  filter(!is.na(income_cat))
+
+eng_income_data %>%
+  ggplot(aes(x=income_cat)) +
+  geom_bar(stat="count", width=0.7, fill="#CC0033") +
+  labs(x = "Income",
+       y = "Count",
+       title = "Figure 1. Income Distribution of English-Canadians in 2019 CES",
+       caption = "Source: Stephenson, Harell, Rubenson, Lowen, 2020.") +
+  theme(axis.text.x=element_text(angle=90),
+        panel.background = element_rect(fill = "#FFCCCC",
+                                colour = "#FFCCCC",
+                                size = 0.5, linetype = "solid"))
+```
+
+For contrast, we have the 
+```{r french_income, echo=FALSE, tidy=FALSE, fig.height=10, fig.width=10}
+fre_income_data<- fre_data %>%
+  filter(!is.na(income_cat))
+
+fre_income_data %>%
+  ggplot(aes(x=income_cat)) +
+  geom_bar(stat="count", width=0.7, fill="steelblue") +
+  labs(x = "Income",
+       y = "Count",
+       title = "Figure 2. Income Distribution of French-Canadians in 2019 CES",
+       caption = "Source: Stephenson, Harell, Rubenson, Lowen, 2020.") +
+  theme(axis.text.x=element_text(angle=90),
+        panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+```
+
+# Part II-b. Employment Status
+
+```{r english_employment, echo=FALSE, tidy=FALSE, fig.height=10, fig.width=10}
+
+eng_employment_data<- eng_data %>%
+  filter(!is.na(employment))
+
+eng_employment_data %>%
+  ggplot(aes(x=employment)) +
+  geom_bar(stat="count", width=0.7, fill="#CC0033") +
+  labs(x = "Income",
+       y = "Count",
+       title = "Figure 3. Employment Status of English-Canadians in 2019 CES",
+       caption = "Source: Stephenson, Harell, Rubenson, Lowen, 2020.") +
+  theme(axis.text.x=element_text(angle=90),
+        panel.background = element_rect(fill = "#FFCCCC",
+                                colour = "#FFCCCC",
+                                size = 0.5, linetype = "solid"))
+```
+
+```{r french_income, echo=FALSE, tidy=FALSE, fig.height=10, fig.width=10}
+fre_income_data<- fre_data %>%
+  filter(!is.na(income_cat))
+
+fre_income_data %>%
+  ggplot(aes(x=income_cat)) +
+  geom_bar(stat="count", width=0.7, fill="steelblue") +
+  labs(x = "Income",
+       y = "Count",
+       title = "Figure 2. Income Distribution of French-Canadians in 2019 CES",
+       caption = "Source: Stephenson, Harell, Rubenson, Lowen, 2020.") +
+  theme(axis.text.x=element_text(angle=90),
+        panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+```
 ```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
 par(mar = c(0, 1, 0, 1))
 pie(
