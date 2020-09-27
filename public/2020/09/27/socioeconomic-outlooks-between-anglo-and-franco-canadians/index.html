@@ -22,11 +22,6 @@
 
 
 
-
-<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
-
-
-
 <link rel="stylesheet" href="/css/fonts.css" media="all">
 <link rel="stylesheet" href="/css/main.css" media="all">
 
@@ -64,7 +59,7 @@
 
     
     <span class="article-meta">
-      Brian Diep / 27 Sep 2020 / 3 min read <br>
+      Brian Diep / 27 Sep 2020 / 5 min read <br>
       
       
       Categories:
@@ -92,15 +87,13 @@
       
 
 
+<div id="abstract" class="section level2">
+<h2>Abstract</h2>
+<p>To varying degrees throughout history, Canadian society has generally been segregated between an English-speaking majority and a French-speaking minority. The tumultuous history between the two groups has had a long-lasting impact on the fabric of Canadian society. In our analysis of various socioeconomic factors between both groups, our findings imply that the socioeconomic gap between allophones and francophones across Canada has closed significantly.</p>
+</div>
 <div id="part-i.-introduction" class="section level2">
 <h2>Part I. Introduction</h2>
-<p>The divide between English and French Canadians has historically been the source of much social tension in this country. Franco-Canadians have historically found themselves in opposition to and oppressed by the English majority. This disparity can bee seen in historical records. The goal of this analysis is to find any gaps between these two groups that can be seen in contemporary Canadian society, as a result of these tensions. Through our cursory look through the de. We find that overall, the gap between English and French-Canadians has closed and that they have roughly the same levels of income, educational attainment, and employment.</p>
-<pre class="r"><code>#Filter data into data set containing results of English speakers and French speakers
-eng_data&lt;-decon %&gt;%
-  filter(language_eng==&quot;English&quot;)
-
-fre_data&lt;-decon %&gt;%
-  filter(language_fr==&quot;French&quot;)</code></pre>
+<p>The divide between English and French Canadians has historically been the source of much social tension in this country. Franco-Canadians have historically found themselves in opposition to and oppressed by the English majority (Behiels). This disparity can bee seen in historical records and even lead to an influential French-Canadian separatist movement. Although the tensions between both groups have since cooled off, the goal of this analysis is to find any gaps between these two groups that can be seen in contemporary Canadian society. Through our cursory look through the data, we find that overall the gap between English and French-Canadians has closed and that both groups have roughly the same levels of income, educational attainment, and employment.</p>
 </div>
 <div id="part-ii.-data-and-analysis" class="section level2">
 <h2>Part II. Data and Analysis</h2>
@@ -110,31 +103,52 @@ fre_data&lt;-decon %&gt;%
 <h1>Part II-a. Income</h1>
 <p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/english_income-1.png" width="768" /></p>
 <p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/french_income-1.png" width="768" /></p>
-<p>The figures above show the income distribution of English-Canadians and French-Canadians respectively. In both, we see a similar distribution of responses across both populations.</p>
+<p>The figures above show the income distribution of English-Canadians and French-Canadians respectively. Participants were asked to categorize their estimated annual household income into various income categories. Within both populations, we see a similar distribution of responses across both populations.</p>
 </div>
 <div id="part-ii-b.-employment-status" class="section level1">
 <h1>Part II-b. Employment Status</h1>
 <p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/english_employment-1.png" width="768" /></p>
 <p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/french_employment-1.png" width="768" /></p>
-<p>The proportion of retirees to</p>
+<p>To measure employment status, respondents were asked to pick the response that best matched their current employment status. In terms of employment, we also see similar distribution of full-time employment as compared to part-time or those unemployed.</p>
 </div>
 <div id="part-ii.c.-educational-attainment" class="section level1">
 <h1>Part II.c. Educational Attainment</h1>
 <p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/eng_education-1.png" width="768" /></p>
 <p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/french_education-1.png" width="768" /></p>
+<p>Similarly, respondents were asked about their highest level of education attained. In this case, we see similar proportions of post-secondary study between both English and French-Canadian populations. There is no clear achievement gap between the participants.</p>
 <div id="discussion" class="section level2">
 <h2>Discussion</h2>
-<p>Looking at the data, we see overall that the distribution between. This suggests that many of the socioeconomic gaps between English and French Canadian society have closed.</p>
+<p>Looking at the data, we see that overall there is little difference in the distribution between English and French-Canadians for any of the indicators examined. Although not conclusive, this suggests that many of the socioeconomic gaps between English and French Canadian society have closed.</p>
 </div>
 <div id="limitations-and-next-steps" class="section level2">
 <h2>Limitations and Next Steps</h2>
-<p>For the sake of transparency, a few limitations may have affected the results and conclusions made in this study. In particular, we did not take into account the province of residence of respondents. This is particularly an issue as the distribution of English and French speakers in Canada remains extremely stratified between provinces. For example, the majority of Francophones are found in Quebec and New Brunswick.[cite] Quebec is also unique in that it serves as an outlier since it is the only province with a Francophone majority.[cite] Therefore, the experience of being an English Canadian is likely to be much more different in Quebec than in other English majority provinces.</p>
-<p>We also fail to take into account bilingual speakers of both English and French. This also poses an additional challenge as native francophones are much more likely to be bilingual than their allophone counterparts.[cite]
+<p>For the sake of transparency, a few limitations may have affected the results and conclusions made in this study. In particular, we did not take into account the province of residence of respondents. This is particularly an issue as the distribution of English and French speakers in Canada remains extremely stratified between provinces. For example, the majority of Francophones are found in Quebec and New Brunswick (Statistics Canada 2017). Quebec is also unique in that it serves as an outlier since it is the only province with a Francophone majority (Statistics Canada 2017). Therefore, the experience of being an English Canadian is likely to be much more different in Quebec than in other English majority provinces.</p>
+<p>We also fail to take into account bilingual speakers of both English and French. This also poses an additional challenge as native francophones are much more likely to be bilingual than their allophone counterparts. In fact, those with French as a mother tongue had an English-French bilingualism rate of 43.2% as compared to a much lower bilingualism rate of 11.7% for all other languages (Statistics Canada 2017).
 Finally, our study omits the growing number of immigrants who learn English and/or French later in life, as well as indigenous Canadians who may have extremely different socioeconomic conditions than established English or French communities.</p>
-<p>Future work may examine in depth socioeconomic conditions of bilingual speakers as compared to monolingual speakers. Particular care should be placed upon bilingual French-English speakers compared to monolingual French speakers.</p>
+<p>Future work may examine in depth socioeconomic conditions of bilingual speakers as compared to monolingual speakers. Particular care should be placed upon bilingual French-English speakers compared to monolingual French speakers. We can also do a more in-depth analysis between English-majority provinces and Quebec to examine how the two groups fair in regions where they are minorities.</p>
+<p><em>Supporting code is available at the GitHub link in the site header</em></p>
 </div>
 <div id="references" class="section level2">
 <h2>References</h2>
+<p>Behiels, Michael D., “Francophone-Anglophone Relations”. In The Canadian Encyclopedia. Historica Canada. Article published February 07, 2006; Last Edited March 04, 2015. <a href="https://www.thecanadianencyclopedia.ca/en/article/francophone-anglophone-relations" class="uri">https://www.thecanadianencyclopedia.ca/en/article/francophone-anglophone-relations</a></p>
+<p>Hadley Wickham, Romain François, Lionel Henry and Kirill Müller (2020).
+dplyr: A Grammar of Data Manipulation. R package version 1.0.2.
+<a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a></p>
+<p>H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag
+New York, 2016.</p>
+<p>Paul A. Hodgetts and Rohan Alexander (2020). cesR: Access the CES Datasets
+a Little Easier.. R package version 0.1.0.</p>
+<p>R Core Team (2020). R: A language and environment for statistical
+computing. R Foundation for Statistical Computing, Vienna, Austria. URL
+<a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+<p>Statistics Canada. 2017. 2016 Census Dictionary. Statistics Canada Catalogue no. 98-200-X. Ottawa, Ontario. August 31.
+<a href="https://www12.statcan.gc.ca/census-recensement/2016/as-sa/98-200-x/2016009/98-200-x2016009-eng.cfm" class="uri">https://www12.statcan.gc.ca/census-recensement/2016/as-sa/98-200-x/2016009/98-200-x2016009-eng.cfm</a> (accessed September 27, 2020).</p>
+<p>Statistics Canada. Language Highlight Tables, 2016 Census. Catalogue number 98-402-X2016005 in Statistics Canada [database online]. Ottawa, Ont., 2017 [accessed September 27 2020]. Available from: <a href="https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/hlt-fst/lang/Table.cfm?Lang=E&amp;T=11&amp;Geo=00" class="uri">https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/hlt-fst/lang/Table.cfm?Lang=E&amp;T=11&amp;Geo=00</a>. Accessed September 27, 2020</p>
+<p>Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, ‘2019 Canadian Election Study - Online Survey’, <a href="https://doi.org/10.7910/DVN/DUS88V" class="uri">https://doi.org/10.7910/DVN/DUS88V</a>, Harvard Dataverse, V1</p>
+<p>Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source
+Software, 4(43), 1686, <a href="https://doi.org/10.21105/joss.01686" class="uri">https://doi.org/10.21105/joss.01686</a></p>
+<p>Yihui Xie (2020). blogdown: Create Blogs and Websites with R Markdown. R
+package version 0.20.</p>
 </div>
 </div>
 
@@ -158,18 +172,6 @@ Finally, our study omits the growing number of immigrants who learn English and/
 
     </div>
     
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
-<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-
-
 
     
 
