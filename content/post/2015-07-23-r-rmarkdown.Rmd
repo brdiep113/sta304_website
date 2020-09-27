@@ -1,5 +1,5 @@
 ---
-title: "Socioeconomic Outlooks between Anglo and Franco-Canadians"
+title: "Contemporary Socioeconomic Outlooks between Anglo and Franco-Canadians"
 author: "Brian Diep"
 abstract: "To varying degrees throughout history, Canadian society has generally segregated between an English-speaking majority and a French-speaking minority. The tumultuous history between continues to have an impact on the fabric of Canadian society. In our analysis of various socioeconomic factors between both groups, our findings imply that the socioeconomic gap between allophones and francophones across Canada has closed significantly."
 date: 2020-09-25T21:08:15-05:00
@@ -33,7 +33,7 @@ cesR::get_decon()
 
 ## Abstract
 
-  To varying degrees throughout history, Canadian society has generally been segregated between an English-speaking majority and a French-speaking minority. The tumultuous history between the two groups has had a long-lasting impact on the fabric of Canadian society. In our analysis of various socioeconomic factors between both groups, our findings imply that the socioeconomic gap between allophones and francophones across Canada has closed significantly.
+  To varying degrees throughout history, Canadian society has been segregated between an English-speaking majority and a French-speaking minority. The tumultuous history between these two groups has had a long-lasting impact on the fabric of Canadian society. In particular, we can measure these differences in the socioeconomic conditions of both groups. In our analysis of various socioeconomic factors between both groups, our findings imply that the socioeconomic gap between allophones and francophones across Canada has closed significantly.
 
 
 ## Part I. Introduction
@@ -97,7 +97,7 @@ fre_income_data %>%
 
 ```
 
-The figures above show the income distribution of English-Canadians and French-Canadians respectively. Participants were asked to categorize their estimated annual household income into various income categories. Within both populations, we see a similar distribution of responses across both populations.
+In Figure 1 and Figure 2 above, the graphs show the income distribution of English-Canadians and French-Canadians respectively. Participants were asked to categorize their estimated annual household income into various income categories. Within both populations, we see a similar distribution of responses across both populations.
 
 
 # Part II-b. Employment Status
@@ -139,7 +139,7 @@ fre_employment_data %>%
 
 ```
 
-To measure employment status, respondents were asked to select the response that best matched their current employment status. In terms of employment, we also see similar distribution of full-time employment as compared to part-time or those unemployed.
+To measure employment status, respondents were asked to select the response that best matched their current employment status. In terms of employment, we also see similar distribution of full-time employment as compared to part-time or those unemployed between English (Figure 3) and French Canadians (Figure 4).
 
 # Part II.c. Educational Attainment
 ```{r eng_education, echo=FALSE, tidy=FALSE, fig.height=8, fig.width=8}
@@ -178,7 +178,7 @@ fre_education_data %>%
 
 ```
 
-Similarly to employment status, respondents were asked about their highest level of education attained. In this case, we see similar proportions of post-secondary study between both English and French-Canadian populations. There is no clear achievement gap between the participants.
+Similarly to employment status, respondents were asked about their highest level of education attained. In this case, we see similar proportions of post-secondary study between both English (Figure 5) and French-Canadian (Figure 6) populations. There is no clear achievement gap between the participants.
 
 ## Discussion
 
