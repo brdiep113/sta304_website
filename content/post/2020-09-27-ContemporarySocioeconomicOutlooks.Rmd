@@ -1,0 +1,239 @@
+---
+title: "Contemporary Socioeconomic Outlooks between Anglo and Franco-Canadians"
+author: "Brian Diep"
+abstract: "To varying degrees throughout history, Canadian society has generally segregated between an English-speaking majority and a French-speaking minority. The tumultuous history between continues to have an impact on the fabric of Canadian society. In our analysis of various socioeconomic factors between both groups, our findings imply that the socioeconomic gap between allophones and francophones across Canada has closed significantly."
+date: 2020-09-25T21:08:15-05:00
+categories: ["R"]
+tags: ["R Markdown", "Canada", "report"]
+bibliography: "references.bib"
+---
+
+```{r setup, include=TRUE, message=FALSE, echo=FALSE}
+
+#Install packages
+#knitr::opts_chunk$set(collapse = TRUE)
+#install.packages("devtools")
+#install.packages("tidyverse")
+#install.packages("dplyr")
+#devtools::install_github("hodgettsp/cesR")
+#install.packages("bookdown")
+
+#Import required libraries
+library(tidyverse)
+library(dplyr)
+library(cesR)
+```
+
+```{r cesr, include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+#Get data set
+
+cesR::get_decon()
+
+```
+
+## Abstract
+
+  To varying degrees throughout history, Canadian society has been segregated between an English-speaking majority and a French-speaking minority. The tumultuous history between these two groups has had a long-lasting impact on the fabric of Canadian society. In particular, we can measure these differences in the socioeconomic conditions of both groups. In our analysis of various indicators of economic and social success between both groups, our findings imply that the socioeconomic gap between allophones and francophones across Canada has closed significantly.
+
+
+## Part I. Introduction
+
+  The divide between English and French Canadians has historically been the source of much social tension in this country. Franco-Canadians have historically found themselves in opposition to and oppressed by the English majority (Behiels). This disparity can bee seen in historical records and even lead to an influential French-Canadian separatist movement. Although the tensions between both groups have since cooled off, the goal of this analysis is to find any gaps between these two groups that can be seen in contemporary Canadian society. Through our cursory look through the data, we find that overall the gap between English and French-Canadians has closed and that both groups have roughly the same levels of income, educational attainment, and employment.
+
+```{r prepare data set, message=FALSE, echo=FALSE}
+
+#Filter data into data set containing results of English speakers and French speakers
+eng_data<-decon %>%
+  filter(language_eng=="English")
+
+fre_data<-decon %>%
+  filter(language_fr=="French")
+```
+
+## Part II. Data and Analysis
+
+The data used in this report was gathered from the web 2019 Canadian Election Study. The CES consists of a survey given to a large sample of Canadians across the country and asked respondents information regarding many cultural and socioeconomic factors. Specifically, we examine income distribution, educational attainment, and employment status as key indicators that allow us to measure the relative success of French and English Canadians as a group.
+
+# Part II-a. Income
+
+```{r english_income, echo=FALSE, tidy=FALSE, fig.height=8, fig.width=8}
+
+# Clean income_cat data
+eng_income_data<- eng_data %>%
+  filter(!is.na(income_cat))
+
+# Plot income data
+eng_income_data %>%
+  ggplot(aes(x=income_cat)) +
+  geom_bar(stat="count", width=0.7, fill="#CC0033") +
+  labs(x = "Income",
+       y = "Count",
+       title = "Figure 1. Income Distribution of English-Canadians in 2019 CES",
+       caption = "Source: Stephenson, Harell, Rubenson, Lowen, 2020.") +
+  theme(axis.text.x=element_text(angle=90),
+        panel.background = element_rect(fill = "#FFCCCC",
+                                colour = "#FFCCCC",
+                                size = 0.5, linetype = "solid"))
+```
+
+```{r french_income, echo=FALSE, tidy=FALSE, fig.height=8, fig.width=8}
+
+# Clean income_cat data
+fre_income_data<- fre_data %>%
+  filter(!is.na(income_cat))
+
+# Plot income data
+fre_income_data %>%
+  ggplot(aes(x=income_cat)) +
+  geom_bar(stat="count", width=0.7, fill="steelblue") +
+  labs(x = "Income",
+       y = "Count",
+       title = "Figure 2. Income Distribution of French-Canadians in 2019 CES",
+       caption = "Source: Stephenson, Harell, Rubenson, Lowen, 2020.") +
+  theme(axis.text.x=element_text(angle=90),
+        panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+```
+
+In Figure 1 and Figure 2 above, the graphs show the income distribution of English-Canadians and French-Canadians respectively. Participants were asked to categorize their estimated annual household income into various income categories. Within both populations, we see a similar distribution of responses across both populations.
+
+
+# Part II-b. Employment Status
+
+```{r english_employment, echo=FALSE, tidy=FALSE, fig.height=8, fig.width=8}
+
+
+eng_employment_data<- eng_data %>%
+  filter(!is.na(employment))
+
+eng_employment_data %>%
+  ggplot(aes(x=employment)) +
+  geom_bar(stat="count", width=0.7, fill="#CC0033") +
+  labs(x = "Employment Status",
+       y = "Count",
+       title = "Figure 3. Employment Status of English-Canadians in 2019 CES",
+       caption = "Source: Stephenson, Harell, Rubenson, Lowen, 2020.") +
+  theme(axis.text.x=element_text(angle=90),
+        panel.background = element_rect(fill = "#FFCCCC",
+                                colour = "#FFCCCC",
+                                size = 0.5, linetype = "solid"))
+```
+
+```{r french_employment, echo=FALSE, tidy=FALSE, fig.height=8, fig.width=8}
+fre_employment_data<- fre_data %>%
+  filter(!is.na(income_cat))
+
+fre_employment_data %>%
+  ggplot(aes(x=employment)) +
+  geom_bar(stat="count", width=0.7, fill="steelblue") +
+  labs(x = "Employment Status",
+       y = "Count",
+       title = "Figure 4. Employment Status of French-Canadians in 2019 CES",
+       caption = "Source: Stephenson, Harell, Rubenson, Lowen, 2020.") +
+  theme(axis.text.x=element_text(angle=90),
+        panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+```
+
+To measure employment status, respondents were asked to select the response that best matched their current employment status. In terms of employment, we also see similar distribution of full-time employment as compared to part-time or those unemployed between English (Figure 3) and French Canadians (Figure 4).
+
+# Part II.c. Educational Attainment
+```{r eng_education, echo=FALSE, tidy=FALSE, fig.height=8, fig.width=8}
+eng_education_data<- eng_data %>%
+  filter(!is.na(education))
+
+eng_education_data %>%
+  ggplot(aes(x=education)) +
+  geom_bar(stat="count", width=0.7, fill="#CC0033") +
+  labs(x = "Highest Level of Education",
+       y = "Count",
+       title = "Figure 5. Highest Level of Education of English-Canadians in 2019 CES",
+       caption = "Source: Stephenson, Harell, Rubenson, Lowen, 2020.") +
+  theme(axis.text.x=element_text(angle=90),
+        panel.background = element_rect(fill = "#FFCCCC",
+                                colour = "#FFCCCC",
+                                size = 0.5, linetype = "solid"))
+```
+
+
+```{r french_education, echo=FALSE, tidy=FALSE, fig.height=8, fig.width=8}
+fre_education_data<- fre_data %>%
+  filter(!is.na(education))
+
+fre_education_data %>%
+  ggplot(aes(x=education)) +
+  geom_bar(stat="count", width=0.7, fill="steelblue") +
+  labs(x = "Employment Status",
+       y = "Count",
+       title = "Figure 6. Highest Level of Education of French-Canadians in 2019 CES",
+       caption = "Source: Stephenson, Harell, Rubenson, Lowen, 2020.") +
+  theme(axis.text.x=element_text(angle=90),
+        panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+```
+
+Similarly to employment status, respondents were asked about their highest level of education attained. In this case, we see similar proportions of post-secondary study between both English (Figure 5) and French-Canadian (Figure 6) populations. There is no clear achievement gap between the participants.
+
+## Discussion
+
+Looking at the data, we see that overall there is little difference in the distribution between English and French-Canadians for any of the indicators examined. Although not conclusive, this suggests that many of the socioeconomic gaps between English and French Canadian society have closed. 
+
+## Limitations and Next Steps
+
+  For the sake of transparency, a few limitations may have affected the results and conclusions made in this study. In particular, we did not take into account the province of residence of respondents. This is particularly an issue as the distribution of English and French speakers in Canada remains extremely stratified between provinces. For example, the majority of Francophones are found in Quebec and New Brunswick (Statistics Canada 2017). Quebec is also unique in that it serves as an outlier since it is the only province with a Francophone majority (Statistics Canada 2017). Therefore, the experience of being an English Canadian is likely to be much more different in Quebec than in other English majority provinces.
+  
+  We also fail to take into account bilingual speakers of both English and French. This also poses an additional challenge as native francophones are much more likely to be bilingual than their allophone counterparts. In fact, those with French as a mother tongue had an English-French bilingualism rate of 43.2% as compared to a much lower bilingualism rate of 11.7% for all other languages (Statistics Canada 2017).
+Finally, our study omits the growing number of immigrants who learn English and/or French later in life, as well as indigenous Canadians who may have extremely different socioeconomic conditions than established English or French communities.
+
+  Future work may examine in depth socioeconomic conditions of bilingual speakers as compared to monolingual speakers. Particular care should be placed upon bilingual French-English speakers compared to monolingual French speakers. We can also do a more in-depth analysis between English-majority provinces and Quebec to examine how the two groups fair in regions where they are minorities.
+  
+*Supporting code is available at the GitHub link in the site header*
+
+## References
+
+Behiels, Michael D., "Francophone-Anglophone Relations". In The Canadian Encyclopedia. Historica Canada. Article published February 07, 2006; Last Edited March 04, 2015. https://www.thecanadianencyclopedia.ca/en/article/francophone-anglophone-relations
+
+Hadley Wickham, Romain François, Lionel Henry and Kirill Müller (2020).
+  dplyr: A Grammar of Data Manipulation. R package version 1.0.2.
+  https://CRAN.R-project.org/package=dplyr
+  
+H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag
+  New York, 2016.
+  
+Paul A. Hodgetts and Rohan Alexander (2020). cesR: Access the CES Datasets
+  a Little Easier.. R package version 0.1.0.
+  
+R Core Team (2020). R: A language and environment for statistical
+  computing. R Foundation for Statistical Computing, Vienna, Austria. URL
+  https://www.R-project.org/.
+  
+Statistics Canada. 2017. 2016 Census Dictionary. Statistics Canada Catalogue no. 98-200-X. Ottawa, Ontario. August 31.
+https://www12.statcan.gc.ca/census-recensement/2016/as-sa/98-200-x/2016009/98-200-x2016009-eng.cfm (accessed September 27, 2020).
+
+Statistics Canada. Language Highlight Tables, 2016 Census. Catalogue number 98-402-X2016005 in Statistics Canada [database online]. Ottawa, Ont., 2017 [accessed September 27 2020]. Available from: https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/hlt-fst/lang/Table.cfm?Lang=E&T=11&Geo=00. Accessed September 27, 2020
+
+Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey', https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1
+
+Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source
+  Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
+  
+Yihui Xie (2020). blogdown: Create Blogs and Websites with R Markdown. R
+  package version 0.20.
+
+
+```{r references, echo=FALSE, message=FALSE, include=FALSE}
+citation()
+citation("dplyr")
+citation("cesR")
+citation("tidyverse")
+citation("blogdown")
+citation("ggplot2")
+
+```
+
