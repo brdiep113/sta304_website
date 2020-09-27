@@ -92,18 +92,9 @@
       
 
 
-<pre><code>## TO CITE THIS SURVEY FILE: Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, &#39;2019 Canadian Election Study - Online Survey&#39;,
-##            https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1
-## LINK: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DUS88V</code></pre>
-<div id="abstract" class="section level2">
-<h2>Abstract</h2>
-<p>To varying degrees throughout history, Canadian society has generally segregated between an English-speaking majority and a French-speaking minority. The tumultuous history between continues to have an impact on the fabric of Canadian society. In our analysis of various socioeconomic factors between both groups, our findings imply that the socioeconomic gap between allophones and francophones across Canada has closed significantly.</p>
-</div>
 <div id="part-i.-introduction" class="section level2">
 <h2>Part I. Introduction</h2>
-<p>First paragraph: The divide between English and French Canada has historically been the source of much social tension in this country. Franco-Canadians have historically found themselves in opposition to and oppressed by the English majority. Although in recent times, the tension between these two groups have cooled, the effects can still be seen within society. In particular, the socioeconomic well-being of these communities. The goal of this analysis is to that can be seen in contemporary Canadian society, as a result of these tensions. Through our curosry We find that Specific Findings.</p>
-<p>Using data from web responses to the 2019 Canadian Election Study, where various we analyze and discuss the gaps between various socioeconomic indicators between English speaking and French speaking Canadians. Specifically, we examine income distribution, educational attainment, and employment status as Elaborate about methodology and findings.</p>
-<p>Third paragraph: Outline of the paper. Future work. Weaknesses. In the future, we plan on. Bilingualism is a latent variable that was not considered in our study. As well, these findings may not apply to</p>
+<p>The divide between English and French Canadians has historically been the source of much social tension in this country. Franco-Canadians have historically found themselves in opposition to and oppressed by the English majority. This disparity can bee seen in historical records. The goal of this analysis is to find any gaps between these two groups that can be seen in contemporary Canadian society, as a result of these tensions. Through our cursory look through the de. We find that overall, the gap between English and French-Canadians has closed and that they have roughly the same levels of income, educational attainment, and employment.</p>
 <pre class="r"><code>#Filter data into data set containing results of English speakers and French speakers
 eng_data&lt;-decon %&gt;%
   filter(language_eng==&quot;English&quot;)
@@ -113,45 +104,34 @@ fre_data&lt;-decon %&gt;%
 </div>
 <div id="part-ii.-data-and-analysis" class="section level2">
 <h2>Part II. Data and Analysis</h2>
+<p>The data used in this report was gathered from the web 2019 Canadian Election Study. The CES consists of a survey given to a large sample of Canadians across the country and asked respondents information regarding many cultural and socioeconomic factors. Specifically, we examine income distribution, educational attainment, and employment status as key indicators that allow us to measure the relative success of French and English Canadians as a group.</p>
 </div>
 <div id="part-ii-a.-income" class="section level1">
 <h1>Part II-a. Income</h1>
+<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/english_income-1.png" width="768" /></p>
+<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/french_income-1.png" width="768" /></p>
 <p>The figures above show the income distribution of English-Canadians and French-Canadians respectively. In both, we see a similar distribution of responses across both populations.</p>
-<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/french_income_pie-1.png" width="672" /><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/french_income_pie-2.png" width="672" /></p>
 </div>
 <div id="part-ii-b.-employment-status" class="section level1">
 <h1>Part II-b. Employment Status</h1>
-<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/english_employment-1.png" width="960" /></p>
-<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/french_employment-1.png" width="960" /></p>
+<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/english_employment-1.png" width="768" /></p>
+<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/french_employment-1.png" width="768" /></p>
 <p>The proportion of retirees to</p>
 </div>
 <div id="part-ii.c.-educational-attainment" class="section level1">
 <h1>Part II.c. Educational Attainment</h1>
-<pre class="r"><code>par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c(&#39;Sky&#39;, &#39;Sunny side of pyramid&#39;, &#39;Shady side of pyramid&#39;),
-  col = c(&#39;#0292D8&#39;, &#39;#F7EA39&#39;, &#39;#C4B632&#39;),
-  init.angle = -50, border = NA
-)</code></pre>
-<div class="figure"><span id="fig:pie"></span>
-<img src="/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png" alt="A fancy pie chart." width="672" />
-<p class="caption">
-Figure 1: A fancy pie chart.
-</p>
-</div>
+<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/eng_education-1.png" width="768" /></p>
+<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/french_education-1.png" width="768" /></p>
 <div id="discussion" class="section level2">
 <h2>Discussion</h2>
-<p>Looking at the data, we see overall that the distribution between. This suggests that much of the socioeconomic gaps in Canadian society have closed.</p>
+<p>Looking at the data, we see overall that the distribution between. This suggests that many of the socioeconomic gaps between English and French Canadian society have closed.</p>
 </div>
 <div id="limitations-and-next-steps" class="section level2">
 <h2>Limitations and Next Steps</h2>
-<p>For the sake of transparency, a few limitations may have affected the results and conclusions made in this study. In particular, we did not take into account the province of residence of respondents. This is particularly an issue as the distribution of English and French speakers in Canada remains extremely stratified between provinces. For example, the majority of Francophones are found in Quebec and New Brunswick.[cite] Quebec is also unique in that it serves as an outlier since it is the only province with a Francophone majority.[cite] In this We also fail to take into account bilingual speakers of both English and French. This also poses an additional element of mystery as native francophones are much more likely to be bilingual than their allophone counterparts.[cite]
-Finally, growing immigration from non-English nor French majority countries.</p>
+<p>For the sake of transparency, a few limitations may have affected the results and conclusions made in this study. In particular, we did not take into account the province of residence of respondents. This is particularly an issue as the distribution of English and French speakers in Canada remains extremely stratified between provinces. For example, the majority of Francophones are found in Quebec and New Brunswick.[cite] Quebec is also unique in that it serves as an outlier since it is the only province with a Francophone majority.[cite] Therefore, the experience of being an English Canadian is likely to be much more different in Quebec than in other English majority provinces.</p>
+<p>We also fail to take into account bilingual speakers of both English and French. This also poses an additional challenge as native francophones are much more likely to be bilingual than their allophone counterparts.[cite]
+Finally, our study omits the growing number of immigrants who learn English and/or French later in life, as well as indigenous Canadians who may have extremely different socioeconomic conditions than established English or French communities.</p>
 <p>Future work may examine in depth socioeconomic conditions of bilingual speakers as compared to monolingual speakers. Particular care should be placed upon bilingual French-English speakers compared to monolingual French speakers.</p>
-</div>
-<div id="conclusion" class="section level2">
-<h2>Conclusion</h2>
 </div>
 <div id="references" class="section level2">
 <h2>References</h2>
