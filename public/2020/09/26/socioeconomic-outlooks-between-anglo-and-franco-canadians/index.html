@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.75.1" />
+
+
+<title>Socioeconomic Outlooks between Anglo and Franco-Canadians - Brian&#39;s STA304 Website</title>
+<meta property="og:title" content="Socioeconomic Outlooks between Anglo and Franco-Canadians - Brian&#39;s STA304 Website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/brdiep113/sta304_website">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/rstudio">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+    <h1 class="article-title">Socioeconomic Outlooks between Anglo and Franco-Canadians</h1>
+
+    
+    <span class="article-meta">
+      Brian Diep / 26 Sep 2020 / 3 min read <br>
+      
+      
+      Categories:
+      
+      <a href='/categories/r'>R</a>
+      <br>
+      
+      
+      
+      Tags:
+      
+      <a href='/tags/r-markdown'>R Markdown</a>
+      
+      <a href='/tags/canada'>Canada</a>
+      
+      <a href='/tags/report'>report</a>
+      <br>
+      
+      <br>
+    </span>
+    
+    
+    
+    <div class="article-content">
+      
+
+
+<div id="part-i.-introduction" class="section level2">
+<h2>Part I. Introduction</h2>
+<p>First paragraph: The divide between English and French Canada has historically been the source of much social tension in this country. Franco-Canadians have historically found themselves in opposition to and oppressed by the English majority. Although in recent times, the tension between these two groups have cooled, the effects can still be seen within society. In particular, the socioeconomic well-being of these communities. The goal of this analysis is to that can be seen in contemporary Canadian society, as a result of these tensions. Through our curosry We find that Specific Findings.</p>
+<p>Using data from web responses to the 2019 Canadian Election Study, where various we analyze and discuss the gaps between various socioeconomic indicators between English speaking and French speaking Canadians. Specifically, we examine income distribution, educational attainment, and employment status as Elaborate about methodology and findings.</p>
+<p>Third paragraph: Outline of the paper. Future work. Weaknesses. In the future, we plan on. Bilingualism is a latent variable that was not considered in our study. As well, these findings may not apply to</p>
+<pre class="r"><code>#Filter data into data set containing results of English speakers and French speakers
+eng_data&lt;-decon %&gt;%
+  filter(language_eng==&quot;English&quot;)
+
+fre_data&lt;-decon %&gt;%
+  filter(language_fr==&quot;French&quot;)</code></pre>
+</div>
+<div id="part-ii.-data-and-analysis" class="section level2">
+<h2>Part II. Data and Analysis</h2>
+</div>
+<div id="part-ii-a.-income" class="section level1">
+<h1>Part II-a. Income</h1>
+<p>The figures above show the income distribution of English-Canadians and French-Canadians respectively. In both, we see a similar distribution of responses across both populations.</p>
+<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/french_income_pie-1.png" width="672" /><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/french_income_pie-2.png" width="672" /></p>
+</div>
+<div id="part-ii-b.-employment-status" class="section level1">
+<h1>Part II-b. Employment Status</h1>
+<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/english_employment-1.png" width="960" /></p>
+<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/french_employment-1.png" width="960" /></p>
+<p>The proportion of retirees to</p>
+</div>
+<div id="part-ii.c.-educational-attainment" class="section level1">
+<h1>Part II.c. Educational Attainment</h1>
+<pre class="r"><code>par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c(&#39;Sky&#39;, &#39;Sunny side of pyramid&#39;, &#39;Shady side of pyramid&#39;),
+  col = c(&#39;#0292D8&#39;, &#39;#F7EA39&#39;, &#39;#C4B632&#39;),
+  init.angle = -50, border = NA
+)</code></pre>
+<div class="figure"><span id="fig:pie"></span>
+<img src="/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png" alt="A fancy pie chart." width="672" />
+<p class="caption">
+Figure 1: A fancy pie chart.
+</p>
+</div>
+<div id="discussion" class="section level2">
+<h2>Discussion</h2>
+<p>Looking at the data, we see overall that the distribution between. This suggests that much of the socioeconomic gaps in Canadian society have closed.</p>
+</div>
+<div id="limitations-and-next-steps" class="section level2">
+<h2>Limitations and Next Steps</h2>
+<p>For the sake of transparency, a few limitations may have affected the results and conclusions made in this study. In particular, we did not take into account the province of residence of respondents. This is particularly an issue as the distribution of English and French speakers in Canada remains extremely stratified between provinces. For example, the majority of Francophones are found in Quebec and New Brunswick.[cite] Quebec is also unique in that it serves as an outlier since it is the only province with a Francophone majority.[cite] In this We also fail to take into account bilingual speakers of both English and French. This also poses an additional element of mystery as native francophones are much more likely to be bilingual than their allophone counterparts.[cite]
+Finally, growing immigration from non-English nor French majority countries.</p>
+<p>Future work may examine in depth socioeconomic conditions of bilingual speakers as compared to monolingual speakers. Particular care should be placed upon bilingual French-English speakers compared to monolingual French speakers.</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
+</div>
+</div>
+
+    </div>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
