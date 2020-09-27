@@ -25,14 +25,9 @@ library(cesR)
 #Get data set
 cesR::get_decon()
 ```
-## Abstract
-To varying degrees throughout history, Canadian society has generally segregated between an English-speaking majority and a French-speaking minority. The tumultuous history between continues to have an impact on the fabric of Canadian society. In our analysis of various socioeconomic factors between both groups, our findings imply that the socioeconomic gap between allophones and francophones across Canada has closed significantly.
-
 ## Part I. Introduction
 
-First paragraph: The divide between English and French Canada has historically been the source of much social tension in this country. Franco-Canadians have historically found themselves in opposition to and oppressed by the English majority. Although in recent times, the tension between these two groups have cooled, the effects can still be seen within society. In particular, the socioeconomic well-being of these communities. The goal of this analysis is to  that can be seen in contemporary Canadian society, as a result of these tensions. Through our curosry We find that Specific Findings.
-
-Using data from web responses to the 2019 Canadian Election Study, where various  we analyze and discuss the gaps between various socioeconomic indicators between English speaking and French speaking Canadians. Specifically, we examine income distribution, educational attainment, and employment status as  Elaborate about methodology and findings.
+  The divide between English and French Canadians has historically been the source of much social tension in this country. Franco-Canadians have historically found themselves in opposition to and oppressed by the English majority. This has also been demonstrable . In particular, the socioeconomic well-being of these communities. The goal of this analysis is to  that can be seen in contemporary Canadian society, as a result of these tensions. Through our cursory look. We find that overall, English and French-Canadians have roughly the same levels of income, educational attainment, and employment.
 
 Third paragraph: Outline of the paper. Future work. Weaknesses. In the future, we plan on. Bilingualism is a latent variable that was not considered in our study. As well, these findings may not apply to
 
@@ -47,6 +42,9 @@ fre_data<-decon %>%
 ```
 
 ## Part II. Data and Analysis
+
+The data used in this report was gathered from the web 2019 Canadian Election Study. The CES consists of a survey given to a large sample of Canadians across the country and asked respondents information regarding many cultural and socioeconomic factors. Specifically, we examine income distribution, educational attainment, and employment status as key indicators that allow us to measure the relative success of Elaborate about methodology and findings.
+
 # Part II-a. Income
 
 ```{r english_income, echo=FALSE, tidy=FALSE, fig.height=10, fig.width=10}
@@ -87,7 +85,7 @@ fr_income_chart <- fre_income_data %>%
 
 The figures above show the income distribution of English-Canadians and French-Canadians respectively. In both, we see a similar distribution of responses across both populations.
 
-```{r french_income_pie, echo=FALSE, tidy=FALSE}
+```{r french_income_pie, include=FALSE, echo=FALSE, tidy=FALSE}
 
 pie <- fr_income_chart + coord_polar("y", start=0)
 pie
@@ -107,7 +105,7 @@ eng_employment_data<- eng_data %>%
 eng_employment_data %>%
   ggplot(aes(x=employment)) +
   geom_bar(stat="count", width=0.7, fill="#CC0033") +
-  labs(x = "Income",
+  labs(x = "Employment Status",
        y = "Count",
        title = "Figure 3. Employment Status of English-Canadians in 2019 CES",
        caption = "Source: Stephenson, Harell, Rubenson, Lowen, 2020.") +
@@ -124,7 +122,7 @@ fre_employment_data<- fre_data %>%
 fre_employment_data %>%
   ggplot(aes(x=employment)) +
   geom_bar(stat="count", width=0.7, fill="steelblue") +
-  labs(x = "Income",
+  labs(x = "Employment Status",
        y = "Count",
        title = "Figure 4. Employment Status of French-Canadians in 2019 CES",
        caption = "Source: Stephenson, Harell, Rubenson, Lowen, 2020.") +
@@ -138,14 +136,40 @@ fre_employment_data %>%
 The proportion of retirees to 
 
 # Part II.c. Educational Attainment
-```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
-par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
-  col = c('#0292D8', '#F7EA39', '#C4B632'),
-  init.angle = -50, border = NA
-)
+```{r eng_education, echo=FALSE, tidy=FALSE, fig.height=10, fig.width=10}
+eng_education_data<- eng_data %>%
+  filter(!is.na(education))
+
+eng_education_data %>%
+  ggplot(aes(x=education)) +
+  geom_bar(stat="count", width=0.7, fill="#CC0033") +
+  labs(x = "Highest Level of Education",
+       y = "Count",
+       title = "Figure 5. Highest Level of Education of English-Canadians in 2019 CES",
+       caption = "Source: Stephenson, Harell, Rubenson, Lowen, 2020.") +
+  theme(axis.text.x=element_text(angle=90),
+        panel.background = element_rect(fill = "#FFCCCC",
+                                colour = "#FFCCCC",
+                                size = 0.5, linetype = "solid"))
+```
+
+
+```{r french_education, echo=FALSE, tidy=FALSE, fig.height=10, fig.width=10}
+fre_education_data<- fre_data %>%
+  filter(!is.na(education))
+
+fre_education_data %>%
+  ggplot(aes(x=education)) +
+  geom_bar(stat="count", width=0.7, fill="steelblue") +
+  labs(x = "Employment Status",
+       y = "Count",
+       title = "Figure 6. Highest Level of Education of French-Canadians in 2019 CES",
+       caption = "Source: Stephenson, Harell, Rubenson, Lowen, 2020.") +
+  theme(axis.text.x=element_text(angle=90),
+        panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
 ```
 
 ## Discussion
@@ -155,11 +179,8 @@ Looking at the data, we see overall that the distribution between. This suggests
 ## Limitations and Next Steps
 
 For the sake of transparency, a few limitations may have affected the results and conclusions made in this study. In particular, we did not take into account the province of residence of respondents. This is particularly an issue as the distribution of English and French speakers in Canada remains extremely stratified between provinces. For example, the majority of Francophones are found in Quebec and New Brunswick.[cite] Quebec is also unique in that it serves as an outlier since it is the only province with a Francophone majority.[cite] In this We also fail to take into account bilingual speakers of both English and French. This also poses an additional element of mystery as native francophones are much more likely to be bilingual than their allophone counterparts.[cite]
-Finally, growing immigration from non-English nor French majority countries.
+Finally, our study omits the growing number of immigrants who learn English and/or French later in life, as well as indigenous Canadians who may have extremely different socioeconomic conditions than established English or French communities.
 
-Future work may examine in depth socioeconomic conditions of bilingual speakers as compared to monolingual speakers. Particular care should be placed upon bilingual French-English speakers compared to monolingual French speakers. 
-
-## Conclusion
-
+Future work may examine in depth socioeconomic conditions of bilingual speakers as compared to monolingual speakers. Particular care should be placed upon bilingual French-English speakers compared to monolingual French speakers.
 
 ## References
