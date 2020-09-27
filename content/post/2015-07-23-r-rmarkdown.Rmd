@@ -1,5 +1,5 @@
 ---
-title: "Comparing Socioeconomic Outlooks between Anglo and Franco-Canadians"
+title: "Socioeconomic Outlooks between Anglo and Franco-Canadians"
 author: "Brian Diep"
 date: 2020-09-27T21:13:14-05:00
 categories: ["R"]
@@ -39,7 +39,7 @@ fre_data<-decon %>%
   filter(language_fr=="French")
 ```
 
-## Part II. Analysis
+## Part II. Data and Analysis
 # Part II-a. Income
 
 You can also embed plots. See Figure \ref(fig:english_income) for example:
@@ -49,7 +49,7 @@ You can also embed plots. See Figure \ref(fig:english_income) for example:
 eng_income_data<- eng_data %>%
   filter(!is.na(income_cat))
 
-eng_income_data %>%
+eng_income_chart <- eng_income_data %>%
   ggplot(aes(x=income_cat)) +
   geom_bar(stat="count", width=0.7, fill="#CC0033") +
   labs(x = "Income",
@@ -67,7 +67,7 @@ For contrast, we have the
 fre_income_data<- fre_data %>%
   filter(!is.na(income_cat))
 
-fre_income_data %>%
+fr_income_chart <- fre_income_data %>%
   ggplot(aes(x=income_cat)) +
   geom_bar(stat="count", width=0.7, fill="steelblue") +
   labs(x = "Income",
@@ -78,6 +78,12 @@ fre_income_data %>%
         panel.background = element_rect(fill = "lightblue",
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid"))
+
+```
+
+```{r french_income, echo=FALSE, tidy=FALSE}
+
+pie + 
 
 ```
 
@@ -101,16 +107,16 @@ eng_employment_data %>%
                                 size = 0.5, linetype = "solid"))
 ```
 
-```{r french_income, echo=FALSE, tidy=FALSE, fig.height=10, fig.width=10}
-fre_income_data<- fre_data %>%
+```{r french_employment, echo=FALSE, tidy=FALSE, fig.height=10, fig.width=10}
+fre_employment_data<- fre_data %>%
   filter(!is.na(income_cat))
 
-fre_income_data %>%
-  ggplot(aes(x=income_cat)) +
+fre_employment_data %>%
+  ggplot(aes(x=employment)) +
   geom_bar(stat="count", width=0.7, fill="steelblue") +
   labs(x = "Income",
        y = "Count",
-       title = "Figure 2. Income Distribution of French-Canadians in 2019 CES",
+       title = "Figure 4. Employment Status of French-Canadians in 2019 CES",
        caption = "Source: Stephenson, Harell, Rubenson, Lowen, 2020.") +
   theme(axis.text.x=element_text(angle=90),
         panel.background = element_rect(fill = "lightblue",
@@ -118,6 +124,8 @@ fre_income_data %>%
                                 size = 0.5, linetype = "solid"))
 
 ```
+
+# Part II.c. Educational Attainment
 ```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
 par(mar = c(0, 1, 0, 1))
 pie(
@@ -128,4 +136,15 @@ pie(
 )
 ```
 
-# References
+## Discussion
+
+## Limitations and Next Steps
+
+For the sake of transparency, a few limitations may have affected the results and conclusions made in this study. In particular, we did not take into account the province of residence of respondents. This is particularly an issue as the distribution of English and French speakers in Canada remains extremely stratified between provinces. For example, Quebec makes up . We also fail to take into account bilingual speakers of both English and French.  
+
+Futue work may examine the socioeconomic conditions of bilingual speakers, and examine the difference between those who speak primarily French
+
+## Conclusion
+
+
+## References
