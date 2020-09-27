@@ -1,19 +1,23 @@
 ---
 title: "Socioeconomic Outlooks between Anglo and Franco-Canadians"
 author: "Brian Diep"
+abstract: "To varying degrees throughout history, Canadian society has generally segregated between an English-speaking majority and a French-speaking minority. The tumultuous history between continues to have an impact on the fabric of Canadian society. In our analysis of various socioeconomic factors between both groups, our findings imply that the socioeconomic gap between allophones and francophones across Canada has closed significantly."
 date: 2020-09-27T21:13:14-05:00
 categories: ["R"]
-tags: ["R Markdown", "plot", "regression"]
+tags: ["R Markdown", "Canada", "report"]
 bibliography: "references.bib"
 ---
 
 ```{r setup, include=TRUE, message=FALSE, echo=FALSE}
+
+#Install packages
 #knitr::opts_chunk$set(collapse = TRUE)
 #install.packages("devtools")
 #install.packages("tidyverse")
 #install.packages("dplyr")
 #devtools::install_github("hodgettsp/cesR")
 
+#Import required libraries
 library(tidyverse)
 library(dplyr)
 library(cesR)
@@ -21,17 +25,20 @@ library(cesR)
 #Get data set
 cesR::get_decon()
 ```
+## Abstract
+To varying degrees throughout history, Canadian society has generally segregated between an English-speaking majority and a French-speaking minority. The tumultuous history between continues to have an impact on the fabric of Canadian society. In our analysis of various socioeconomic factors between both groups, our findings imply that the socioeconomic gap between allophones and francophones across Canada has closed significantly.
 
 ## Part I. Introduction
 
-First paragraph: The divide between English and French Canada has historically been the source of much social tension in this country. Franco-Canadians have historically found themselves in opposition to and oppressed by the English majority. Although in recent times, the tension between these two groups have cooled, the affects can still be seen within society. In particular, the socioeconomic well-being of these communities. The goal of this analysis is to analyze any socioeconomic gaps that can be seen in contemporary Canadian society, as a result of these tensions. the Motivational. We find that Specific Findings.
+First paragraph: The divide between English and French Canada has historically been the source of much social tension in this country. Franco-Canadians have historically found themselves in opposition to and oppressed by the English majority. Although in recent times, the tension between these two groups have cooled, the effects can still be seen within society. In particular, the socioeconomic well-being of these communities. The goal of this analysis is to  that can be seen in contemporary Canadian society, as a result of these tensions. Through our curosry We find that Specific Findings.
 
-Second paragraph: Using data from web responses to the 2019 Canadian Election Study, we analyze and discuss the gaps between various socioeconomic indicators between English speaking and French speaking Canadians. Specifically, we examine income distribution, educational attainment, and employment status as  Elaborate about methodology and findings.
+Using data from web responses to the 2019 Canadian Election Study, where various  we analyze and discuss the gaps between various socioeconomic indicators between English speaking and French speaking Canadians. Specifically, we examine income distribution, educational attainment, and employment status as  Elaborate about methodology and findings.
 
 Third paragraph: Outline of the paper. Future work. Weaknesses. In the future, we plan on. Bilingualism is a latent variable that was not considered in our study. As well, these findings may not apply to
 
 ```{r prepare data set, message=FALSE}
 
+#Filter data into data set containing results of English speakers and French speakers
 eng_data<-decon %>%
   filter(language_eng=="English")
 
@@ -41,8 +48,6 @@ fre_data<-decon %>%
 
 ## Part II. Data and Analysis
 # Part II-a. Income
-
-You can also embed plots. See Figure \ref(fig:english_income) for example:
 
 ```{r english_income, echo=FALSE, tidy=FALSE, fig.height=10, fig.width=10}
 
@@ -62,7 +67,6 @@ eng_income_chart <- eng_income_data %>%
                                 size = 0.5, linetype = "solid"))
 ```
 
-For contrast, we have the 
 ```{r french_income, echo=FALSE, tidy=FALSE, fig.height=10, fig.width=10}
 fre_income_data<- fre_data %>%
   filter(!is.na(income_cat))
@@ -81,9 +85,15 @@ fr_income_chart <- fre_income_data %>%
 
 ```
 
-```{r french_income, echo=FALSE, tidy=FALSE}
+The figures above show the income distribution of English-Canadians and French-Canadians respectively. In both, we see a similar distribution of responses across both populations.
 
-pie + 
+```{r french_income_pie, echo=FALSE, tidy=FALSE}
+
+pie <- fr_income_chart + coord_polar("y", start=0)
+pie
+
+pie2 <- eng_income_chart + coord_polar("y", start=0)
+pie2
 
 ```
 
@@ -125,6 +135,8 @@ fre_employment_data %>%
 
 ```
 
+The proportion of retirees to 
+
 # Part II.c. Educational Attainment
 ```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
 par(mar = c(0, 1, 0, 1))
@@ -138,11 +150,14 @@ pie(
 
 ## Discussion
 
+Looking at the data, we see overall that the distribution between. This suggests that much of the socioeconomic gaps in Canadian society have closed. 
+
 ## Limitations and Next Steps
 
-For the sake of transparency, a few limitations may have affected the results and conclusions made in this study. In particular, we did not take into account the province of residence of respondents. This is particularly an issue as the distribution of English and French speakers in Canada remains extremely stratified between provinces. For example, Quebec makes up . We also fail to take into account bilingual speakers of both English and French.  
+For the sake of transparency, a few limitations may have affected the results and conclusions made in this study. In particular, we did not take into account the province of residence of respondents. This is particularly an issue as the distribution of English and French speakers in Canada remains extremely stratified between provinces. For example, the majority of Francophones are found in Quebec and New Brunswick.[cite] Quebec is also unique in that it serves as an outlier since it is the only province with a Francophone majority.[cite] In this We also fail to take into account bilingual speakers of both English and French. This also poses an additional element of mystery as native francophones are much more likely to be bilingual than their allophone counterparts.[cite]
+Finally, growing immigration from non-English nor French majority countries.
 
-Futue work may examine the socioeconomic conditions of bilingual speakers, and examine the difference between those who speak primarily French
+Future work may examine in depth socioeconomic conditions of bilingual speakers as compared to monolingual speakers. Particular care should be placed upon bilingual French-English speakers compared to monolingual French speakers. 
 
 ## Conclusion
 
