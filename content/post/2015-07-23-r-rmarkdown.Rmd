@@ -2,7 +2,7 @@
 title: "Socioeconomic Outlooks between Anglo and Franco-Canadians"
 author: "Brian Diep"
 abstract: "To varying degrees throughout history, Canadian society has generally segregated between an English-speaking majority and a French-speaking minority. The tumultuous history between continues to have an impact on the fabric of Canadian society. In our analysis of various socioeconomic factors between both groups, our findings imply that the socioeconomic gap between allophones and francophones across Canada has closed significantly."
-date: 2020-09-27T21:10:15-05:00
+date: 2020-09-26T21:08:15-05:00
 categories: ["R"]
 tags: ["R Markdown", "Canada", "report"]
 bibliography: "references.bib"
