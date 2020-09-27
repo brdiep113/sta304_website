@@ -2,7 +2,7 @@
 title: "Socioeconomic Outlooks between Anglo and Franco-Canadians"
 author: "Brian Diep"
 abstract: "To varying degrees throughout history, Canadian society has generally segregated between an English-speaking majority and a French-speaking minority. The tumultuous history between continues to have an impact on the fabric of Canadian society. In our analysis of various socioeconomic factors between both groups, our findings imply that the socioeconomic gap between allophones and francophones across Canada has closed significantly."
-date: 2020-09-26T21:08:15-05:00
+date: 2020-09-25T21:08:15-05:00
 categories: ["R"]
 tags: ["R Markdown", "Canada", "report"]
 bibliography: "references.bib"
@@ -139,7 +139,7 @@ fre_employment_data %>%
 
 ```
 
-To measure employment status, respondents were asked to pick the response that best matched their current employment status. In terms of employment, we also see similar distribution of full-time employment as compared to part-time or those unemployed.
+To measure employment status, respondents were asked to select the response that best matched their current employment status. In terms of employment, we also see similar distribution of full-time employment as compared to part-time or those unemployed.
 
 # Part II.c. Educational Attainment
 ```{r eng_education, echo=FALSE, tidy=FALSE, fig.height=8, fig.width=8}
@@ -178,7 +178,7 @@ fre_education_data %>%
 
 ```
 
-Similarly, respondents were asked about their highest level of education attained. In this case, we see similar proportions of post-secondary study between both English and French-Canadian populations. There is no clear achievement gap between the participants.
+Similarly to employment status, respondents were asked about their highest level of education attained. In this case, we see similar proportions of post-secondary study between both English and French-Canadian populations. There is no clear achievement gap between the participants.
 
 ## Discussion
 
