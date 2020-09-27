@@ -33,7 +33,7 @@ cesR::get_decon()
 
 ## Abstract
 
-  To varying degrees throughout history, Canadian society has been segregated between an English-speaking majority and a French-speaking minority. The tumultuous history between these two groups has had a long-lasting impact on the fabric of Canadian society. In particular, we can measure these differences in the socioeconomic conditions of both groups. In our analysis of various socioeconomic factors between both groups, our findings imply that the socioeconomic gap between allophones and francophones across Canada has closed significantly.
+  To varying degrees throughout history, Canadian society has been segregated between an English-speaking majority and a French-speaking minority. The tumultuous history between these two groups has had a long-lasting impact on the fabric of Canadian society. In particular, we can measure these differences in the socioeconomic conditions of both groups. In our analysis of various indicators of economic and social success between both groups, our findings imply that the socioeconomic gap between allophones and francophones across Canada has closed significantly.
 
 
 ## Part I. Introduction
