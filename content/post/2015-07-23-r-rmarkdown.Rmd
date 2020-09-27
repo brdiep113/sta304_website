@@ -8,7 +8,7 @@ tags: ["R Markdown", "Canada", "report"]
 bibliography: "references.bib"
 ---
 
-```{r setup, include=TRUE, message=FALSE, echo=FALSE}
+```{r setup, include=FALSE, message=FALSE, echo=FALSE}
 
 #Install packages
 #knitr::opts_chunk$set(collapse = TRUE)
